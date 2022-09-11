@@ -3,6 +3,12 @@ include 'database.php';
 $sql = 'SELECT product_id, product_name, product_description, product_price ,product_image FROM products';
 $resultset = mysqli_query($conn, $sql);
 ?>
+<script>
+    function whatsappmessage()
+    {
+        location.href= 'https://wa.me/254799029620?text=success';       
+    }
+</script>
 <!DOCTYPE html>
 
 <html>
@@ -11,6 +17,7 @@ $resultset = mysqli_query($conn, $sql);
         <meta charset="utf-8">
         <link rel="stylesheet" href="styles.css">
         <link rel="icon" type="image/x-icon" href="">
+        <link href="http://fonts.cdnfonts.com/css/snell-roundhand" rel="stylesheet">
         <style type="text/css">
             a.nounderline{text-decoration: none;}
         </style>
@@ -20,12 +27,12 @@ $resultset = mysqli_query($conn, $sql);
     <body>
         <section class="header">
             <div class="headerpic">
-                <img src="image/landscape.jfif" alt="headerpicture" width="100%" height="400px">
-                <div class="title"><p>RELINAL ENTERPRISES</p></div>
+                <img src="images/header.png" alt="headerpicture" width="100%" height="250px">
+                <div class="title"><p>Relinal Enterprises</p></div>
             </div>
         </section>
 
-        <p id="productstitle">VIEW OUR PRODUCTS</p>
+        <p id="productstitle">View our products</p>
 
         <section class="products">
             
@@ -36,7 +43,7 @@ $resultset = mysqli_query($conn, $sql);
                         $id=$record['product_id'];
                 ?>
             
-            <div class="cardhovercard">
+            <div class="cardhovercard" onclick="whatsappmessage()">
                     <div class="cardheader">               
                         <div class="avatar">
                             <?php echo "<img src='images/".$record["product_image"]."'>"?>
@@ -56,92 +63,13 @@ $resultset = mysqli_query($conn, $sql);
                 ?>
             </div>
         </section>
+        <section class="contact">
+            <div class="contactbox">
+                <h2 id="contactheader">Contact us</h2>
+                <p>Phone: 0786597439</p>
+                <p>Email: relinal.enterprises@gmail.com</p>
+            </div>
+        </section>
     </body>
 
 </html>
--------------------------------------------------------------------------------------------------------------------------------------------------------
-body
-{
-  background-color: #90ee90;
-}
-.header
-{
-  position: relative;
-}
-.title {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 4vw;
-  font-weight: bolder;
-  color: white;
-
-}
-#productstitle
-{
-  text-align: center;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 3vw;
-  font-weight: bolder;
-  margin:  auto;
-  color:  black;
-  border-radius: 10px;
-}
-.products
-{
-  margin-left: 2.3vw;
-}
-.cardhovercard
-{
-    display: inline-block;
-    padding: 10vw;
-    border-radius: 10%;
-    transition: transform ease 300ms;
-    margin: 2vw;
-    width:  20vw;
-    position: relative;
-    background-color: #FFFFCC;
-}
-.cardhovercard:hover{
-    border-width: 0px;
-    transform: translate(0, 0.5vw);
-    border-color: white;
-    -moz-box-shadow: 0 0 20px green;
-    -webkit-box-shadow: 0 0 20px green;
-    box-shadow:  0 0 30px green;
-}
-.cardheader
-{
-
-}
-.avatar
-{
-  display:  flex;
-  align-items: center;
-  justify-content: center;
-}
-.name
-{
-    padding-top: 1vw;
-    text-align: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color:  black;
-    font-size: 2vw;
-}
-.desc
-{
-    text-align: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color:  black;
-    font-size: 2vw;
-}
-.price
-{
-    padding-top: 1vw;
-    text-align: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color:  black;
-    font-size: 2vw;
-}
